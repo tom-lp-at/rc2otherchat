@@ -20,7 +20,7 @@ The Attachments are exported with the `gridfs-migrate.py` from gridfsmigrate.
 I prefer this way because the other dump creates directorys with the GridFS-ID with the files in it. But they have mostly no extension. 
 I learned in the Matrix.org import (on the hard way), that they **must have** a valid extension. I have to find the right extension anyway, i find the usage from the GridFS-ID-Only export easier then the subdirectory-based export. Without the extension the file is uploaded correctly, but i got no preview of the attachment. I saw only a file attachment that has to be downloaded to see the content...
 
-How the import for NextCloud-Talk works:
+# How the import for NextCloud-Talk works:
 With the dumps in the right place  
 /inputs/rocketchat_messages.json  
 /inputs/rocketchat_rooms.json  
@@ -28,35 +28,30 @@ With the dumps in the right place
 /inputs/files/<exported files from gridfs>  
 
 you have to edit the parameters on the top of the file (included the connection string to mysql/mariadb)  
-Be aware : i used **oc_** as suffix for the tables. If you used a other suffix you have to replace all **oc_** with your suffix!!  
+Be aware : i used **oc_** as suffix for the tables. If you used a other suffix you have to replace all **oc_** with your suffix in rc2talk.py !!  
 
-The following modules are needed  
-import argparse  
-import sys  
-import os  
-import pprint as ppprint  
-import json  
-import requests  
-import re  
-import markdown  
-import errno  
-import dateutil.parser as dp  
-import mimetypes  
-import subprocess  
-import pprint  
-import mariadb  
-import bcrypt  
-import random, string  
-import shutil  
-import hashlib  
-import magic  
-import emoji # for reactions  
+Now it´s time for a break: make a BACKUP NOW of your existing Nextcloud-Database & Files!! Trust me - you will need it...
 
-from datetime import datetime  
-from requests.adapters import HTTPAdapter  
-from urllib3.util import Retry  
-from subprocess import check_output  
-from pprint import PrettyPrinter  
-from urllib.parse import quote  
-from pathlib import Path  
-from PIL import Image  
+You will strugle with the needed python moduls. Please have a look into the top of rc2talk.py to see the list of needed modules. tbh: i started the process over and over until all needed modules are installed :)  
+
+You can start the import many times. It will only import messages they are not committed as transfered into the DB of NC.
+
+# How the import for Matrix.org works:
+Since encryption is standard at matrix.org, it is not easy to import messages with a date other than **Now**. After some time of trying around, I found a way that was acceptable to me without compromising the security of the entries.
+I inject additional messages before the comment that reflects the date & time of the post. The date whose easy, but the time on every message in the end makes the conversation a little bit confusing.
+So i decied to write the time at least 10 minutes after the last comment. If the next comment is newer than 10 minutes i inject the time before the message. Feel free to adjust the calculation of adding the additonal time-messages...
+The main change is the sending behavior. Every message is send with the corresponding user that is created into the matrix database.
+
+With the dumps in the right place  
+/inputs/rocketchat_messages.json  
+/inputs/rocketchat_rooms.json  
+/inputs/rocketchat_users.json  
+/inputs/files/<exported files from gridfs>  
+
+you have the edit the rc2matrix.yaml. Dont ask me why Two tokens are needed. I imported all with the same Admin-Key. May be my change of sending messages makes the Applikation-Token useless...
+
+Now it´s time for a break: make a BACKUP NOW of your existing Matrix.org-Database & Files!! Trust me - you will need it...
+
+# How the import for Mattermost works:
+
+... to be filled ...
