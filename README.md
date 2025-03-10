@@ -25,12 +25,12 @@ With the dumps in the right place
 - /inputs/rocketchat_messages.json  
 - /inputs/rocketchat_rooms.json  
 - /inputs/rocketchat_users.json  
-- /inputs/files/<exported files from gridfs>  
+- /inputs/files/\<exported files from gridfs>  
 
 you have to edit the parameters on the top of the file (included the connection string to mysql/mariadb)  
 Be aware : i used **oc_** as suffix for the tables. If you used a other suffix you have to replace all **oc_** with your suffix in rc2talk.py !!  
 
-Now it´s time for a break: make a BACKUP NOW of your existing Nextcloud-Database & Files!! Trust me - you will need it...
+**Now it´s time for a break**: make a **BACKUP NOW** of your existing Nextcloud-Database & Files!! Trust me - you will need it...
 
 You will strugle with the needed python moduls. Please have a look into the top of rc2talk.py to see the list of needed modules. tbh: i started the process over and over until all needed modules are installed :)  
 
@@ -46,11 +46,11 @@ With the dumps in the right place
 - /inputs/rocketchat_messages.json  
 - /inputs/rocketchat_rooms.json  
 - /inputs/rocketchat_users.json  
-- /inputs/files/<exported files from gridfs>  
+- /inputs/files/\<exported files from gridfs>  
 
 you have the edit the rc2matrix.yaml. Dont ask me why Two tokens are needed. I imported all with the same Admin-Key. May be my change of sending messages makes the Applikation-Token useless...
 
-Now it´s time for a break: make a BACKUP NOW of your existing Matrix.org-Database & Files!! Trust me - you will need it...
+**Now it´s time for a break**: make a **BACKUP NOW** of your existing Matrix.org-Database & Files!! Trust me - you will need it...
 
 # How the import for Mattermost works:
 The import into Mattermost didn't use the dump files above. It generates his own JSONL files from the running MongoDB. 
