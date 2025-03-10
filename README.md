@@ -16,7 +16,7 @@ First of all i installed a local MongoDB and imported the bson-Dump from the Liv
 You should choose the same MongoDB-Server as you run the RocketChat himself. I don´t know really if it matters, but -again- to be on the saveside ;)
 
 For Matrix.org & NextCloud-Talk i used the same dumps created with the `mongo_exportpublic.sh` from RC2Matrix.
-The Attachments are exported with the `migrate.py` from gridfsmigrate. 
+The Attachments are exported with the `gridfs-migrate.py` from gridfsmigrate. 
 I prefer this way because the other dump creates directorys with the GridFS-ID with the files in it. But they have mostly no extension. 
 I learned in the Matrix.org import (on the hard way), that they **must have** a valid extension. I have to find the right extension anyway, i find the usage from the GridFS-ID-Only export easier then the subdirectory-based export. Without the extension the file is uploaded correctly, but i got no preview of the attachment. I saw only a file attachment that has to be downloaded to see the content...
 
