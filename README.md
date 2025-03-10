@@ -29,3 +29,34 @@ With the dumps in the right place
 
 you have to edit the parameters on the top of the file (included the connection string to mysql/mariadb)  
 Be aware : i used **oc_** as suffix for the tables. If you used a other suffix you have to replace all **oc_** with your suffix!!  
+
+The following modules are needed  
+import argparse  
+import sys  
+import os  
+import pprint as ppprint  
+import json  
+import requests  
+import re  
+import markdown  
+import errno  
+import dateutil.parser as dp  
+import mimetypes  
+import subprocess  
+import pprint  
+import mariadb  
+import bcrypt  
+import random, string  
+import shutil  
+import hashlib  
+import magic  
+import emoji # for reactions  
+
+from datetime import datetime  
+from requests.adapters import HTTPAdapter  
+from urllib3.util import Retry  
+from subprocess import check_output  
+from pprint import PrettyPrinter  
+from urllib.parse import quote  
+from pathlib import Path  
+from PIL import Image  
