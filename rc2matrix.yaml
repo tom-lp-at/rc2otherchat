@@ -1,0 +1,15 @@
+url: https://matrix.example.com:443/
+as_token: aac05ae90a248a4188e620216aa72e349803310ec83e2a77b34fe90be6081f88
+hs_token: aac05ae90aaa8a4188e620216aa72e349803310ec83e2a77b34fe90be6081f99
+id: rc2matrix
+sender_localpart: rc2matrix
+namespaces:
+  users:  # List of users we're interested in
+    - exclusive: false
+      regex: "^((?!rocket).)*$"
+  aliases:
+    - exclusive: false
+      regex: ".*"
+  rooms:
+    - exclusive: false
+      regex: ".*"
