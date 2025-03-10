@@ -36,7 +36,7 @@ You will strugle with the needed python moduls. Please have a look into the top 
 
 You can start the import many times. It will only import messages they are not committed as transfered into the DB of NC.  
 
-If you come into trouble: restore your backup and delete the three *-chache files to start from scratch. In the time of debugging and writting the code, i only cleaned up the rooms and let the user stay as they whose. Therefor i only deleted the messages_cache.txt to save time ;)
+If you come into trouble: restore your backup and delete the three *-chache files to start from scratch. In the time of debugging and writting the code, i only cleaned up the rooms and let the user stay as they were. Therefor i only deleted the messages_cache.txt to save time ;)
 
 # How the import for Matrix.org works:
 Since encryption is standard at matrix.org, it is not easy to import messages with a date other than **Now**. After some time of trying around, I found a way that was acceptable to me without compromising the security of the entries.
@@ -59,7 +59,7 @@ You will strugle with the needed python moduls. Please have a look into the top 
 
 You can start the import many times. It will only import messages they are not committed as transfered into the DB of Matrix.org.  
 
-If you come into trouble: restore your backup and delete the three *-chache files to start from scratch. In the time of debugging and writting the code, i only cleaned up the rooms and let the user stay as they whose. Therefor i only deleted the messages_cache.txt to save time ;)
+If you come into trouble: restore your backup and delete the three *-chache files to start from scratch. In the time of debugging and writting the code, i only cleaned up the rooms and let the user stay as they were. Therefor i only deleted the messages_cache.txt to save time ;)
 
 # How the import for Mattermost works:
 The import into Mattermost didn't use the dump files above. It generates his own JSONL files from the running MongoDB. 
