@@ -51,6 +51,9 @@ With the dumps in the right place
 you have the edit the rc2matrix.yaml. Dont ask me why Two tokens are needed. I imported all with the same Admin-Key. May be my change of sending messages makes the Applikation-Token useless...
 
 **Now it´s time for a break**: make a **BACKUP NOW** of your existing Matrix.org-Database & Files!! Trust me - you will need it...
+You will strugle with the needed python moduls. Please have a look into the top of rc2matrix.py to see the list of needed modules. tbh: i started the process over and over until all needed modules are installed :)
+
+You can start the import many times. It will only import messages they are not committed as transfered into the DB of Matrix.org.
 
 # How the import for Mattermost works:
 The import into Mattermost didn't use the dump files above. It generates his own JSONL files from the running MongoDB. 
