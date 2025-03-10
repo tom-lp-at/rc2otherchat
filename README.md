@@ -18,7 +18,7 @@ You should choose the same MongoDB-Server as you run the RocketChat himself. I d
 For Matrix.org & NextCloud-Talk i used the same dumps created with the `mongo_exportpublic.sh` from RC2Matrix.
 The Attachments are exported with the `gridfs-migrate.py` from gridfsmigrate. 
 I prefer this way because the other dump creates directorys with the GridFS-ID with the files in it. But they have mostly no extension. 
-I learned in the Matrix.org import (on the hard way), that they **must have** a valid extension. I have to find the right extension anyway, i find the usage from the GridFS-ID-Only export easier then the subdirectory-based export. Without the extension the file is uploaded correctly, but i got no preview of the attachment. I saw only a file attachment that has to be downloaded to see the content...
+I learned in the Matrix.org import (on the hard way), that they **must have** a valid extension. I have to find the right extension anyway, i find the usage from the GridFS-ID only export easier then the subdirectory-based export. Without the extension the file is uploaded correctly, but i got no preview of the attachment. I saw only a file attachment that has to be downloaded to see the content...
 
 # How the import for NextCloud-Talk works:
 With the dumps in the right place  
@@ -34,12 +34,16 @@ Be aware : i used **oc_** as suffix for the tables. If you used a other suffix y
 
 You will strugle with the needed python moduls. Please have a look into the top of rc2talk.py to see the list of needed modules. tbh: i started the process over and over until all needed modules are installed :)  
 
-You can start the import many times. It will only import messages they are not committed as transfered into the DB of NC.
+You can start the import many times. It will only import messages they are not committed as transfered into the DB of NC.  
+
+If you come into trouble: restore your backup and delete the three *-chache files to start from scratch. In the time of debugging and writting the code, i only cleaned up the rooms and let the user stay as they whose. Therefor i only deleted the messages_cache.txt to save time ;)
 
 # How the import for Matrix.org works:
 Since encryption is standard at matrix.org, it is not easy to import messages with a date other than **Now**. After some time of trying around, I found a way that was acceptable to me without compromising the security of the entries.
+
 I inject additional messages before the comment that reflects the date & time of the post. The date whose easy, but the time on every message in the end makes the conversation a little bit confusing.
-So i decied to write the time at least 10 minutes after the last comment. If the next comment is newer than 10 minutes i inject the time before the message. Feel free to adjust the calculation of adding the additonal time-messages...
+
+So i decied to write the time at least 10 minutes after the last comment. If the next comment is newer than 10 minutes i inject the time before the message. Feel free to adjust the calculation of adding the additonal time-messages...  
 The main change is the sending behavior. Every message is send with the corresponding user that is created into the matrix database.
 
 With the dumps in the right place  
@@ -53,7 +57,9 @@ you have the edit the rc2matrix.yaml. Dont ask me why Two tokens are needed. I i
 **Now it´s time for a break**: make a **BACKUP NOW** of your existing Matrix.org-Database & Files!! Trust me - you will need it...  
 You will strugle with the needed python moduls. Please have a look into the top of rc2matrix.py to see the list of needed modules. tbh: i started the process over and over until all needed modules are installed :)
 
-You can start the import many times. It will only import messages they are not committed as transfered into the DB of Matrix.org.
+You can start the import many times. It will only import messages they are not committed as transfered into the DB of Matrix.org.  
+
+If you come into trouble: restore your backup and delete the three *-chache files to start from scratch. In the time of debugging and writting the code, i only cleaned up the rooms and let the user stay as they whose. Therefor i only deleted the messages_cache.txt to save time ;)
 
 # How the import for Mattermost works:
 The import into Mattermost didn't use the dump files above. It generates his own JSONL files from the running MongoDB. 
