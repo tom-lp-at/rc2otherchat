@@ -69,7 +69,6 @@ In the beginning of rc2mattermost, you should edit the settings to your needs:
 - database_path
 - db # bellow of Access to specific database
 
-that´s it.
+that´s it.  
 For further details, dont hasitate to look into the original Repository. My Code here is adapted (correct an error i had with reactions!) and run's...  
 My migration runs into a empty installation with only one admin user and no rooms (be aware: i choose a username that ist **not** existing in the RocketChat Database!!) Afterwards you can promote a imported User to the admin and delete the initial Adminuser. I have no idea whats going on if you have a existing MatterMost installation where you migrate into.... It should work, but how knows (double user/room names and so on)
-May be you will have a look into the original Repo ;)
