@@ -13,7 +13,7 @@ For the migration to MatterMost i used the work from https://github.com/pragnaka
 I learned from booth to analyse and understand the structure from RocketChat and transform it into a other structure.
 
 First of all i installed a local MongoDB and imported the bson-Dump from the Liveinstance from RocketChat, to be on the save side.
-You should choose the same MongoDB-Server as you run the RocketChat himself. I don´t know really if it matters, but -again- to be on the saveside ;)
+You should choose the same MongoDB-Server as you run the RocketChat himself. I don´t know really if it matters, but -again- to be on the save side ;)
 
 For Matrix.org & NextCloud-Talk i used the same dumps created with the `mongo_exportpublic.sh` from RC2Matrix.
 The Attachments are exported with the `gridfs-migrate.py` from gridfsmigrate. 
