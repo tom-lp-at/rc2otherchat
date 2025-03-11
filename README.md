@@ -36,7 +36,7 @@ You will strugle with the needed python moduls. Please have a look into the top 
 
 You can start the import many times. It will only import messages they are not committed as transfered into the DB of NC.  
 
-If you come into trouble: restore your backup and delete the three *-chache files to start from scratch. In the time of debugging and writting the code, i only cleaned up the rooms and let the user stay as they were. Therefor i only deleted the messages_cache.txt to save time ;)
+If you come into trouble: restore your backup and delete the three *-chache.txt files to start from scratch. In the time of debugging and writting the code, i only cleaned up the created rooms and let the user stay as they were. Therefor i only deleted the messages_cache.txt to save time ;)
 
 # How the import for Matrix.org works:
 Since encryption is standard at matrix.org, it is not easy to import messages with a date other than **Now**. After some time of trying around, I found a way that was acceptable to me without compromising the security of the entries.
@@ -59,7 +59,7 @@ You will strugle with the needed python moduls. Please have a look into the top 
 
 You can start the import many times. It will only import messages they are not committed as transfered into the DB of Matrix.org.  
 
-If you come into trouble: restore your backup and delete the three *-chache files to start from scratch. In the time of debugging and writting the code, i only cleaned up the rooms and let the user stay as they were. Therefor i only deleted the messages_cache.txt to save time ;)
+If you come into trouble: restore your backup and delete the three *-chache.txt files to start from scratch. In the time of debugging and writting the code, i only cleaned up the created rooms and let the user stay as they were. Therefor i only deleted the messages_cache.txt to save time ;)
 
 # How the import for Mattermost works:
 The import into Mattermost didn't use the dump files above. It generates his own JSONL files from the running MongoDB. 
@@ -70,5 +70,6 @@ In the beginning of rc2mattermost, you should edit the settings to your needs:
 - db # bellow of Access to specific database
 
 that´s it.
+For further details, dont hasitate to look into the original Repository. My Code here is adapted (correct an error i had with reactions!) and run's...  
 My migration runs into a empty installation with only one admin user and no rooms (be aware: i choose a username that ist **not** existing in the RocketChat Database!!) Afterwards you can promote a imported User to the admin and delete the initial Adminuser. I have no idea whats going on if you have a existing MatterMost installation where you migrate into.... It should work, but how knows (double user/room names and so on)
 May be you will have a look into the original Repo ;)
